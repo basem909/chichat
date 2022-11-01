@@ -3,12 +3,12 @@
   <head>
     <title>Chichat</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= stylesheet_link_tag
-    "application", "data-turbo-track": "reload" %> <%= javascript_importmap_tags
-    %>
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= stylesheet_link_tag"application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <div class='font-normal text-sm sm:text-md text-gray-700 pr-10'> <%= button_to "log out", destroy_user_session_path, method: :delete %> </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
