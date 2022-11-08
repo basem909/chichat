@@ -1,0 +1,23 @@
+<div class="chatroom-container">
+  <div class="side-panel">
+    <h1>ChiChat</h1>
+    <h2><%= current_user.name%></h2>
+    <h4>Users</h4>
+    <%= turbo_stream_from 'users' %>
+    <div id="users"><%= render @users %></div>
+    <h4>Rooms</h4>
+    <%= turbo_stream_from 'rooms' %>
+    <div id="rooms"><%= render @rooms %></div>
+    <%= render 'layouts/new_room' %>
+  </div>
+  <div class="room-container">
+    <% if @show_room %>
+      <h4 class="room-title"><%= @show_room.name or @user.name %></h4>
+      <%= turbo_stream_from @show_room %>
+      <div id="messages">
+        <%= render @messages %>
+      </div>
+      <%= render 'layouts/new_message' %>
+    <%end%>
+  </div>
+</div>

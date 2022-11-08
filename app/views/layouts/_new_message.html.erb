@@ -1,0 +1,6 @@
+<div>
+  <%= form_with(model: [@show_room, @message], remote: true, class:'') do |f| %>
+  <%= f.text_field :body, autocomplete: 'off', class: '' %>
+  <%= f.submit data: {disable_with: false}, class:'' %>
+  <% end %>
+</div>
