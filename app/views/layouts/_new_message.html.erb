@@ -1,5 +1,5 @@
 <div>
-  <%= form_with(model: [@show_room, @message], remote: true, class:'') do |f| %>
+  <%= form_with(model: [@show_room, @message], remote: true, class:'', data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset'}) do |f| %>
   <%= f.text_field :body, autocomplete: 'off', class: '' %>
   <%= f.submit data: {disable_with: false}, class:'' %>
   <% end %>

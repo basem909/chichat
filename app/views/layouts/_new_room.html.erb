@@ -1,4 +1,4 @@
-<%= form_with(model: @room, remote: true, class: '') do |f| %>
+<%= form_with(model: @room, remote: true, class: '', data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset'}) do |f| %>
 <%= f.text_field :name, class: '', autocomplete: 'off' %>
 <%= f.submit data: { disable_with: false } %>
 <% end %>
