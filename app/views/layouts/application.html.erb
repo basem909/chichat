@@ -16,11 +16,19 @@
   </head>
 
   <body>
-    <nav class="flex justify-around bg-blue-300 text-white">
-    <div class="font-normal text-sm sm:text-md pr-10">
-      <%= button_to "log out", destroy_user_session_path, method: :delete %>
+   <div class = 'fixed w-full h-[70px] flex justify-between items-center px-4 bg-[#3B7B9A] shadow-md'>
+      <div>
+       <%= image_tag("logo.jpg", class: 'w-[60px] rounded-md') %>
+      </div>
+     <div class='flex gap-4'>
+         <% if current_user %>
+           <div class='font-normal text-sm sm:text-md text-white pr-10'> <%= button_to "log out", destroy_user_session_path, method: :delete %> </div>
+         <% else %>
+           <div class='font-normal text-sm sm:text-md text-white pr-10'> <%= button_to "Login",  new_user_session_path, method: :get %></div>
+         <% end %>
+         
+      </div>
     </div>
-    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

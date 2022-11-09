@@ -1,23 +1,28 @@
-<div class="px-5 flex ">
-  <div class="side-panel">
-    <h1 class="text-green-300 font-bold underline">ChiChat</h1>
-    <h2><%= current_user.name%></h2>
-    <h4>Users</h4>
-    <%= turbo_stream_from 'users' %>
-    <div id="users"><%= render @users %></div>
-    <h4>Rooms</h4>
-    <%= turbo_stream_from 'rooms' %>
-    <div id="rooms"><%= render @rooms %></div>
-    <%= render 'layouts/new_room' %>
+<div class="px-0 flex gap-3 pt-[70px] min-h-screen">
+  <div
+    class="side-panel w-[30%] min-h-screen bg-[#70afce] px-5 pt-5 text-gray-50 flex flex-col gap-10"
+  >
+    <span
+      ><h2 class="text-xl font-semibold text-[#2b576d]">Hi</h2>
+      <h2 class="text-2xl"><%= current_user.name%>,</h2></span
+    >
+    <div>
+      <h4 class="text-2xl font-semibold text-[#2b576d]">Users</h4>
+      <%= turbo_stream_from 'users' %>
+      <div id="users" class="overflow-y-auto"><%= render @users %></div>
+    </div>
+    <div>
+      <h4 class="text-2xl font-semibold text-[#2b576d]">Rooms</h4>
+      <%= turbo_stream_from 'rooms' %>
+      <div id="rooms" class="overflow-y-auto"><%= render @rooms %></div>
+      <%= render 'layouts/new_room' %>
+    </div>
   </div>
-  <div class="room-container">
+  <div class="room-container w-[70vw]">
     <% if @show_room %>
-      <h4 class="room-title"><%= @show_room.name or @user.name %></h4>
-      <%= turbo_stream_from @show_room %>
-      <div id="messages">
-        <%= render @messages %>
-      </div>
-      <%= render 'layouts/new_message' %>
-    <%end%>
+    <h4 class="room-title"><%= @show_room.name or @user.name %></h4>
+    <%= turbo_stream_from @show_room %>
+    <div id="messages"><%= render @messages %></div>
+    <%= render 'layouts/new_message' %> <%end%>
   </div>
 </div>
