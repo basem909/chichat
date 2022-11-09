@@ -72,3 +72,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'foreman'
+gem 'tailwindcss-rails', '2.0.14'

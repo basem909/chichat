@@ -1,1 +1,13 @@
-<h1>Welcome to ChiChat</h1>
+<div class="flex flex-col items-center h-screen gap-10">
+  <%= image_tag("cover.png", class: 'h-[60vh] w-[500px] sm:h-[450px] md:w-[700px]') %>
+  <span class="text-center">
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl text-blue-500 font-bold">
+      Welcome to ChiChat
+    </h1>
+    <h3 class="text-xl sm:text-2xl lg:text-4xl text-gray-500">
+      Keep in touch
+    </h3></span
+  >
+  <%= link_to'Chat now', rooms_path, class: "text-md sm:text-xl border-2
+  bg-blue-500 text-white py-3 px-10 rounded-full" %>
+</div>

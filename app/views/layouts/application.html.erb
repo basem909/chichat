@@ -3,12 +3,24 @@
   <head>
     <title>Chichat</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%= stylesheet_link_tag"application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> <%=
+    stylesheet_link_tag"application", "data-turbo-track": "reload" %> <%=
+    javascript_importmap_tags %>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <div class='font-normal text-sm sm:text-md text-gray-700 pr-10'> <%= button_to "log out", destroy_user_session_path, method: :delete %> </div>
+    <nav class="flex justify-around bg-blue-300 text-white">
+    <div class="font-normal text-sm sm:text-md pr-10">
+      <%= button_to "log out", destroy_user_session_path, method: :delete %>
+    </div>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

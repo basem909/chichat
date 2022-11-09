@@ -1,6 +1,6 @@
-<div class="chatroom-container">
+<div class="px-5 flex ">
   <div class="side-panel">
-    <h1>ChiChat</h1>
+    <h1 class="text-green-300 font-bold underline">ChiChat</h1>
     <h2><%= current_user.name%></h2>
     <h4>Users</h4>
     <%= turbo_stream_from 'users' %>
