@@ -28,7 +28,7 @@
       </h4>
     </div>
     <%= turbo_stream_from @show_room %>
-    <div id="messages" class="px-2 flex flex-col overflow-y-auto max-h-[70vh]"><%= render @messages %></div>
+    <div id="messages" class="px-2 flex flex-col overflow-y-auto max-h-[70vh]" data-controller="scroll"><%= render @messages %></div>
     <div><%= render 'layouts/new_message' %></div>
     <%end%>
   </div>
