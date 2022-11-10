@@ -1,6 +1,8 @@
-<div>
+
+<div class="border-2 border-[#2b576d] bg-[#a5def1] text-[#2b576d] p-3 rounded-lg w-fit m-3 self-start msg-<%= message.user_id %>">
   <% unless message.room.is_private %>
-  <h6><%= message.user.name %></h6>
+  <h6 class="text-sm"><%= message.user.name %></h6>
   <% end %>
-  <p><%= message.body %></p>
+  <p class="text-lg font-light"><%= message.body %></p>
+  
 </div>

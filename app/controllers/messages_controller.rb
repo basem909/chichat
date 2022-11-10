@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
   def create
+    @user = current_user
     @message = current_user.messages.create(body: msg_params[:body], room_id: params[:room_id])
   end
 
