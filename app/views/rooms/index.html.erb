@@ -1,34 +1,34 @@
 <div class="px-0 flex pt-[70px] min-h-screen">
   <div
-    class="side-panel w-[30%] min-h-screen bg-[#70afce] px-5 pt-5 text-gray-50 flex flex-col gap-10"
+    class="side-panel w-[30%] min-h-screen bg-[#00A8A8] px-5 pt-5 text-white flex flex-col gap-10 rounded-r-sm"
   >
     <span
-      ><h2 class="text-xl font-semibold text-[#213f4e]">Hi</h2>
+      ><h2 class="text-xl font-semibold text-[#192f3a]">Hi</h2>
       <h2 class="text-2xl"><%= current_user.name%>,</h2></span
     >
     <div>
-      <h4 class="text-2xl font-semibold text-[#213f4e]">Users</h4>
+      <h4 class="text-2xl font-semibold text-[#192f3a]">Users</h4>
       <%= turbo_stream_from 'users' %>
       <div id="users" class="overflow-y-auto"><%= render @users %></div>
     </div>
     <div>
-      <h4 class="text-2xl font-semibold text-[#213f4e]">Rooms</h4>
+      <h4 class="text-2xl font-semibold text-[#192f3a]">Rooms</h4>
       <%= turbo_stream_from 'rooms' %>
       <div id="rooms" class="overflow-y-auto"><%= render @rooms %></div>
       <%= render 'layouts/new_room' %>
     </div>
   </div>
-  <div class="room-container w-[70vw]">
+  <div class="room-container w-[70vw] ">
     <% if @show_room %>
     <div
-      class="h-[70px] bg-[#a5def1] text-[#213f4e] flex justify-center items-center"
+      class="h-[70px] bg-[#2E8BC0] text-gray-50 flex justify-center items-center"
     >
-      <h4 class="room-title text-3xl font-medium">
+      <h4 class="room-title text-2xl font-medium">
         <%= @show_room.name or @user.name %>
       </h4>
     </div>
     <%= turbo_stream_from @show_room %>
-    <div id="messages" class="px-2 flex flex-col overflow-y-auto max-h-[70vh]" data-controller="scroll"><%= render @messages %></div>
+    <div id="messages" class="px-2 flex flex-col overflow-y-auto max-h-[79vh] bg-white" data-controller="scroll"><%= render @messages %></div>
     <div><%= render 'layouts/new_message' %></div>
     <%end%>
   </div>

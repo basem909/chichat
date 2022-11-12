@@ -1,8 +1,15 @@
-
-<div class="border-2 border-[#2b576d] bg-[#a5def1] text-[#2b576d] p-3 rounded-lg w-fit m-3 self-start msg-<%= message.user_id %>">
-  <% unless message.room.is_private %>
-  <h6 class="text-sm"><%= message.user.name %></h6>
-  <% end %>
-  <p class="text-lg font-light"><%= message.body %></p>
-  
+<div
+  class="border-2 border-[#2b576d] text-black bg-[#C4DBE0] p-3 rounded-lg w-fit m-3 self-start flex flex-col gap-4 msg-<%= message.user_id %>"
+>
+  <div class="flex items-center min-w-fit gap-10">
+    <%= image_tag(message.user.chat_avatar, class:'rounded-full w-[50px]
+    h-[50px]') %>
+    <span>
+      <h6 class="text-lg"><%= message.user.name %></h6>
+      <notice class="text-sm"
+        ><%= time_ago_in_words(message.created_at) %> ago</notice
+      ></span
+    >
+  </div>
+  <p class="text-lg font-light pl-3"><%= message.body %></p>
 </div>

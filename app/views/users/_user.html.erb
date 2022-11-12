@@ -1,3 +1,10 @@
-<li class="pl-3 list-disc">
-  <%= link_to user.name, user, class: ' font-semilight hover:text-gray-700' %>
+<% if @show_room && @show_room.participant?(@show_room, user) %>
+<% isActive = 'active' %>
+<% else %>
+<% isActive = '' %>
+<% end %>
+
+<li class="flex gap-5 items-center mt-5 w-full <%= isActive %>">
+  <div><%= link_to(image_tag(user.chat_avatar, class: 'rounded-full w-[50px] h-[50px]'), user, class: '') %></div>
+  <%= link_to user.name, user, class: ' font-semilight hover:text-gray-700', data: {turbo: 'false'} %>
 </li>

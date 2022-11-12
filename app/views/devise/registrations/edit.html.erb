@@ -22,6 +22,17 @@
   </div>
 
   <div class="field">
+    <%= image_tag(resource.avatar_thumbnail) if resource.avatar.attached? %>
+  </div>
+
+  <div class="field">
+      <%= f.label :avatar, class: "text-sm text-[#3B7B9A]" %><br />
+      <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar", class:
+      "w-full h-10 px-3 pt-1 mb-2 text-base text-gray-700 placeholder-gray-600
+      border rounded-lg focus:shadow-outline bg-white" %>
+    </div>
+
+  <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
