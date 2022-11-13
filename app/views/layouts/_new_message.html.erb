@@ -1,6 +1,6 @@
 <div class="fixed bottom-0 w-[70vw] p-5 bg-[#2E8BC0]">
   <%= form_with(model: [@show_room, @message], remote: true, class:'flex justify-around', data: { controller: 'reset-form', action: 'turbo:submit-end->reset-form#reset'}) do |f| %>
   <%= f.text_field :body, autocomplete: 'off', class: 'w-[55vw] p-2 rounded-lg' %>
-  <%= f.submit 'Send', data: {disable_with: false}, class:'border-2 border-gray-600 px-3 py-2 text-gray-700 bg-[#B1D4E0] rounded-md cursor-pointer ' %>
+  <%= f.submit 'Send', data: {disable_with: false}, class:'border-2 border-gray-600 px-3 py-2 text-white bg-[#00a8a8] rounded-md cursor-pointer ' %>
   <% end %>
 </div>

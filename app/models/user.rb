@@ -6,9 +6,11 @@ class User < ApplicationRecord
 
   scope :all_except, -> (user) {where.not(id: user)}
   after_create_commit {broadcast_append_to 'users'}
+  after_update_commit { broadcast_update }
   has_many :messages
   has_one_attached :avatar
   after_commit :attach_default_avatar, on: %i[create update]
+  enum status: %i[offline away online]
 
 
   def avatar_thumbnail
@@ -17,6 +19,23 @@ class User < ApplicationRecord
 
   def chat_avatar
      avatar.variant(resize_to_limit: [50, 50]).processed
+  end
+
+  def broadcast_update
+    broadcast_replace_to "user_status", partial: 'users/status', user: self
+  end
+
+  def status_to_css
+    case status
+    when 'online'
+      return 'bg-green-500'
+    when 'away'
+      return 'bg-yellow-500'
+    when 'offline'
+      return 'bg-gray-600'
+    else
+      'bg-red-700'
+    end
   end
   private
   def attach_default_avatar
